@@ -7,44 +7,6 @@ interface GameSizerProps {
     onSubmit: (size: number) => void;
 }
 
-// interface GameSizerState {
-//     inputValue: string;
-// }
-
-// class GameSizer extends React.Component<GameSizerProps, GameSizerState> {
-//     constructor(props: GameSizerProps) {
-//         super(props);
-//         this.state = {
-//             inputValue: this.props.size + ''
-//         };
-//     }
-
-//     public onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-//         const newSize =
-//             !isNaN(+this.state.inputValue) && +this.state.inputValue > 1 ? +this.state.inputValue : DEFAULT_SIZE;
-//         if (newSize + '' !== this.state.inputValue) {
-//             this.setState({ inputValue: newSize + '' });
-//         }
-//         this.props.onSubmit(newSize);
-//         event.preventDefault();
-//     };
-
-//     public onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-//         this.setState({ inputValue: event.target.value });
-//     };
-
-//     render() {
-//         return (
-//             <div className="board-resize">
-//                 <label htmlFor="labelResize">Change board size:</label>
-//                 <form onSubmit={this.onSubmit}>
-//                     <input id="labelResize" value={this.state.inputValue} onChange={this.onChange} />
-//                 </form>
-//             </div>
-//         );
-//     }
-// }
-
 function GameSizer(props: GameSizerProps) {
     let inputElement: HTMLInputElement;
 
