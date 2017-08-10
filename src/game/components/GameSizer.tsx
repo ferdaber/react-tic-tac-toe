@@ -1,4 +1,4 @@
-import { DEFAULT_SIZE } from '../reducer';
+import { defaultState } from '../../reducer';
 import * as React from 'react';
 import { connect } from 'react-redux';
 
@@ -12,7 +12,7 @@ function GameSizer(props: GameSizerProps) {
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         const inputVal = inputElement.value;
-        const newSize = !isNaN(+inputVal) && +inputVal > 1 ? +inputVal : DEFAULT_SIZE;
+        const newSize = !isNaN(+inputVal) && +inputVal > 1 ? +inputVal : defaultState.size;
         if (newSize + '' !== inputVal) {
             inputElement.value = newSize + '';
             inputElement.classList.add('flash');
