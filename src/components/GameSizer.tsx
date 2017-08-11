@@ -12,7 +12,10 @@ function GameSizer(props: GameSizerProps) {
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         const inputVal = inputElement.value;
-        const newSize = !isNaN(+inputVal) && +inputVal > 1 ? +inputVal : DEFAULT_SIZE;
+        let newSize = !isNaN(+inputVal) && +inputVal > 1 ? +inputVal : DEFAULT_SIZE;
+        if (newSize > 20) {
+            newSize = 20;
+        }
         if (newSize + '' !== inputVal) {
             inputElement.value = newSize + '';
             inputElement.classList.add('flash');
@@ -23,6 +26,10 @@ function GameSizer(props: GameSizerProps) {
 
     const onFlashEnd = (event: React.AnimationEvent<HTMLInputElement>) => {
         event.currentTarget.classList.remove('flash');
+    };
+
+    const onClick = (event: React.FocusEvent<HTMLInputElement>) => {
+        event.currentTarget.setSelectionRange(0, event.currentTarget.value.length);
     };
 
     return (
@@ -36,6 +43,7 @@ function GameSizer(props: GameSizerProps) {
                     defaultValue={props.size + ''}
                     ref={input => (inputElement = input)}
                     onAnimationEnd={onFlashEnd}
+                    onFocus={onClick}
                 />
             </form>
         </div>

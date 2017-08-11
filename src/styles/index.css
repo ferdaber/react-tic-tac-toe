@@ -37,6 +37,12 @@ ul {
     outline: none;
 }
 
+.square:empty:hover {
+    background-color: #efefef;
+    transition: background-color 0.20s;
+    cursor: pointer;
+}
+
 .kbd-navigation .square:focus {
     background: #ddd;
 }
@@ -48,6 +54,10 @@ ul {
 
 .game-info {
     margin-left: 20px;
+}
+
+.game-info a:visited {
+    color: inherit;
 }
 
 .board-resize {
