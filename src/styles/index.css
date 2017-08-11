@@ -1,5 +1,5 @@
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
+    font: 14px Inconsolata, "Century Gothic", Futura, sans-serif;
     margin: 20px;
 }
 
@@ -51,7 +51,7 @@ ul {
 }
 
 .board-resize {
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .board-resize label {

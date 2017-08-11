@@ -7,11 +7,11 @@ import GameSizer from './GameSizer';
 function App(props: Pick<GameState, 'size'>) {
     return (
         <div>
+            <GameSizer />
             <div className="game">
                 <GameBoard />
                 <GameInfo />
             </div>
-            <GameSizer />
         </div>
     );
 }
