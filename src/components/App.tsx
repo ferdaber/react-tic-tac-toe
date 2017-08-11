@@ -1,12 +1,10 @@
-import GameSizer from './GameSizer';
+import * as React from 'react';
+import { connect } from 'react-redux';
 import GameInfo from './GameInfo';
 import GameBoard from './GameBoard';
-import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
+import GameSizer from './GameSizer';
 
-interface GameProps extends RouteComponentProps<{ size: string }> {}
-
-export default function Game(props: GameProps) {
+function App(props: Pick<GameState, 'size'>) {
     return (
         <div>
             <div className="game">
@@ -17,3 +15,9 @@ export default function Game(props: GameProps) {
         </div>
     );
 }
+
+export default connect((state: GameState) => {
+    return {
+        size: state.size
+    };
+})(App);
