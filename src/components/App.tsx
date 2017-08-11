@@ -1,23 +1,27 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { Route } from 'react-router';
+import Navigation from './Navigation';
 import GameInfo from './GameInfo';
 import GameBoard from './GameBoard';
 import GameSizer from './GameSizer';
 
-function App(props: Pick<GameState, 'size'>) {
+const Game = () =>
+    <div>
+        <GameSizer />
+        <div className="game">
+            <GameBoard />
+            <GameInfo />
+        </div>
+    </div>;
+
+const Intro = () => <div>Welcome to the app!</div>;
+
+export default function App() {
     return (
         <div>
-            <GameSizer />
-            <div className="game">
-                <GameBoard />
-                <GameInfo />
-            </div>
+            <Navigation />
+            <Route exact={true} path="/" component={Intro} />
+            <Route path="/tic-tac-toe" component={Game} />
         </div>
     );
 }
-
-export default connect((state: GameState) => {
-    return {
-        size: state.size
-    };
-})(App);

@@ -4,6 +4,7 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from './components/App';
 import reducer from './reducer';
@@ -13,7 +14,9 @@ let store = createStore(reducer);
 
 render(
     <Provider store={store}>
-        <App />
+        <Router>
+            <App />
+        </Router>
     </Provider>,
     document.getElementById('root') as HTMLElement
 );
