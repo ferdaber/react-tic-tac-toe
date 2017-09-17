@@ -19,12 +19,12 @@ const getWinner = (board: Play[][]) => {
     }
     const winningDiags = board
         .reduce(
-            (diags: Play[][], curRow, idx) => (
-                diags[0].push(curRow[idx]),
-                diags[1].push(curRow[board.length - 1 - idx]),
-                diags
-            ),
-            [[], []]
+        (diags: Play[][], curRow, idx) => (
+            diags[0].push(curRow[idx]),
+            diags[1].push(curRow[board.length - 1 - idx]),
+            diags
+        ),
+        [[], []]
         )
         .find(diag => diag.every(cell => cell === 'X') || diag.every(cell => cell === 'O'));
     return winningDiags && winningDiags[0];
@@ -53,7 +53,7 @@ export default (
                 nextPlayer: togglePlayer(state.nextPlayer),
                 moves: [...copyMoves(state.moves), nextBoard],
                 winner: getWinner(nextBoard)
-            });
+            }) as GameState
         case 'UNDO':
             const newMoves = copyMoves(state.moves.slice(0, action.moveNum + 1));
             const newPlayer =
@@ -63,15 +63,15 @@ export default (
                 nextPlayer: newPlayer,
                 moves: newMoves,
                 winner: newWinner
-            });
+            }) as GameState
         case 'RESIZE':
             return {
                 moves: [new Array(action.size).fill(new Array(action.size).fill(null))],
                 nextPlayer: 'X',
                 winner: null as Play,
                 size: action.size
-            };
+            } as GameState
         default:
             return state;
     }
-};
+}

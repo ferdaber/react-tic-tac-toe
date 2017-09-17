@@ -1,4 +1,4 @@
-import { DEFAULT_SIZE } from '../reducer';
+import { DEFAULT_SIZE } from '../game-reducer';
 import * as React from 'react';
 import { connect } from 'react-redux';
 

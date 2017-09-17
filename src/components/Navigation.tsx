@@ -19,4 +19,5 @@ export default () =>
             Home
         </Nav>
         <Nav to="/tic-tac-toe">Game</Nav>
+        <Nav to="/todo">Todo</Nav>
     </div>;

@@ -26,7 +26,9 @@ function Cell(props: CellProps) {
 const mapStateToProps = (state: GameState, ownProps: Pick<CellProps, 'rowNum' | 'colNum'>) => {
     return {
         cellState: state.moves[state.moves.length - 1][ownProps.rowNum][ownProps.colNum],
-        gameComplete: state.winner != null
+        gameComplete: state.winner != null,
+        rowNum: ownProps.rowNum,
+        colNum: ownProps.colNum
     };
 };
 
